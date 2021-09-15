@@ -1,0 +1,30 @@
+<div class="container"  *ngIf="users.length > 0">
+    <br>
+    <div>
+        <br>
+        <table class="table table-sm table-bordered table-dark table-hover" border="1"> 
+            <thead>
+                 <tr>
+                    <th class="col-xs-1 text-center" scope="col">UserId</th>
+                    <th class="col-xs-1 text-center" scope="col">UserName</th>
+                    <th class="col-xs-1 text-center" scope="col">Email</th>
+                    <th class="col-xs-1 text-center" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td class="col-xs-1 text-center">{{ user.id }}</td>
+                    <td class="col-xs-1 text-center">{{ user.userName }}</td>
+                    <td class="col-xs-1 text-center">{{ user.email }}</td>
+                    <td class="col-xs-1 text-center"><button class="btn btn-danger btn-sm btn-xs" (click)="deleteUser(user)"> Delete</button>
+                        <button class="btn btn-primary btn-sm btn-xs" (click)="editUser(user)" style="margin-left: 20px;">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container" *ngIf="users.length == 0">
+    <br>
+    <h6 class="text-danger text-center">No user data found!!</h6>
+</div>
